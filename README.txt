@@ -1,0 +1,1 @@
+fOSsil is a primitive embeddedOS designed to run on Cortex Series of processors
