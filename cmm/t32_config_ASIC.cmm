@@ -1,0 +1,17 @@
+; Chev - October 19, 2010: This file has pretty much everything removed as it is now done
+; in the startup file for Trace32. We're keeping it here as a placeholder should we need
+; to do anything, in the future.
+
+setup.bakfile off
+;Add some extra buttons to the toolbar
+
+print "------------------------------------------------------------------------------"
+print "  Customize Menu  "
+print "------------------------------------------------------------------------------"
+menu.reset
+do .\..\..\..\..\..\..\..\cmm\menu_rpm.cmm
+setup.bakfile off
+
+
+
+enddo
