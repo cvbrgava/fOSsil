@@ -1,0 +1,17 @@
+;****************************************************************
+;
+; ---           Semi-hosting Setup               ---
+;
+;****************************************************************
+print "Loading Semihosting Setup"
+
+map.bonchip 0--0x2ffff
+break.delete /all
+R.S	R13 0x0001FFF8
+term.heapinfo 0x30000 0x38000 0x3FB00 0x38000
+term.method armswi
+term.scroll on
+term.mode string
+term.size 80. 1000.
+
+enddo
