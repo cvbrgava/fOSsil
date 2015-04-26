@@ -7,7 +7,7 @@ INC=-I/pkg/qct/software/arm/RVDS/4.1BLD894/RVCT/Data/4.1/462/include/unix/ -I../
 MACRO=
 
 LINKER=/pkg/qct/software/arm/RVDS/4.1BLD894/RVCT/Programs/4.1/462/linux-pentium/armlink
-SCATTERFILE=/prj/vlsi/vlsi_verify/vi_shere/RUMI/bchintal_shere_vi_tests_modem_vi_dev_view/shared_code/native/vi/rpm_proc/scf/rpm_coderam_nobootrom.scf
+SCATTERFILE=/prj/vlsi/vlsi_verify/vi_estel/ASIC/c_rajend/c_rajend_blr-vilab27_memvex_estel/shared_code/vi/rpm_proc/scf/rpm_coderam_nobootrom.scf 
 LDFLAGS=--info totals --entry=Reset_Handler --map --scatter $(SCATTERFILE)  --info sizes --callgraph --datacompressor off --map
 
 AS=/pkg/qct/software/arm/RVDS/4.1BLD894/RVCT/Programs/4.1/462/linux-pentium/armasm

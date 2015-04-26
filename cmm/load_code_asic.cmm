@@ -41,7 +41,7 @@ print "Configuring Trace 32"
 ;   Downloading the binary image of your code onto the MSM.
 ;________________________________________________________________
 print "Downloading ARM image"
-&m_szExeFullPath="\\blrstore05\vi_shere\users\bchintal\fossil\build\fOSsil.axf"
+&m_szExeFullPath="..\build\fOSsil.axf"
 IF OS.FILE(&m_szExeFullPath)
   GOTO Sub_ContinueExe
 else
@@ -73,8 +73,8 @@ do semihost_setup.cmm
 
 mode.hll
 
-sYmbol.SourcePATH.SetRecurseDir + "\\blrstore05\vi_shere\users\bchintal\fossil\include\"
-sYmbol.SourcePATH.SetRecurseDir + "\\blrstore05\vi_shere\users\bchintal\fossil\src\"
+sYmbol.SourcePATH.SetRecurseDir "..\include"
+sYmbol.SourcePATH.SetRecurseDir "..\src"
 ;________________________________________________________________
 ;
 ;   Setting up the windows.

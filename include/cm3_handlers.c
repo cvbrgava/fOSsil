@@ -31,6 +31,9 @@
 #define __M3_IRQ_HANDLERS_INCLUDED__
 
 #include "cm3_lib.h"
+#include <time.h>
+
+extern time_t start_t, time_now;
 
    /**
    * @brief External symbol definitions
@@ -129,13 +132,20 @@ void Reset_Handler(void) {
 }
 
 void SYSTIC_Handler( void ){
-
 	static index=0;
-	index++;
-
-	printf("Handler Reached %d\n",index ); 
 	
-
+	index++;
+	SCB->ICSR |= 1<<SCB_ICSR_PENDSTCLR_Pos;
+	// printf("Handler Reached %d\n",index ); 
+	SysTick->CTRL = 0;
+	// SysTick->LOAD= 0xFFFFFFFF;
+	// printf("Timer Value %x \n", SysTick->VAL );
+	SysTick->CTRL = 7;
+	
+	if((index % 1000)==0) {
+		time_now = time(NULL);
+		printf("Time elapsed: %d\n", time_now - start_t);
+	}
 }
 
    /**
