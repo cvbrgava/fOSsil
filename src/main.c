@@ -4,7 +4,6 @@
 
 time_t start_t, time_now;
 
-//Test comment to checkin from eclipse.
 void main(){
 	//printf("Hello World!\n");
 	start_t = time(NULL);
