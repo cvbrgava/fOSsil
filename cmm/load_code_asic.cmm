@@ -88,7 +88,8 @@ do basewin
 ;************
 ; Now in QNPL
 ;************
-;go main
+b.s SYSTIC_Handler /o
+go main
 
 ;****************************
 ; Your actual "main" function

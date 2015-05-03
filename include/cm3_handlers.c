@@ -131,23 +131,6 @@ void Reset_Handler(void) {
   __main();
 }
 
-void SYSTIC_Handler( void ){
-	static index=0;
-	
-	index++;
-	SCB->ICSR |= 1<<SCB_ICSR_PENDSTCLR_Pos;
-	// printf("Handler Reached %d\n",index ); 
-	SysTick->CTRL = 0;
-	// SysTick->LOAD= 0xFFFFFFFF;
-	// printf("Timer Value %x \n", SysTick->VAL );
-	SysTick->CTRL = 7;
-	
-	if((index % 1000)==0) {
-		time_now = time(NULL);
-		printf("Time elapsed: %d\n", time_now - start_t);
-	}
-}
-
    /**
    * @brief The implementation of the Reset Handler
    *
