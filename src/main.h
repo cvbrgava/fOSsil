@@ -12,10 +12,11 @@
 typedef struct stask {
 	uint32 * func_pointer;
 	uint32 * sp_process;
+	int8 priority;
 } TASK;
 
 typedef struct context_frame {
-	uint32 reg[8];
+	uint32 reg[8];	//r4-r11
 } CONTEXT_FRAME;
 
 typedef struct stacking_frame {
@@ -28,6 +29,12 @@ typedef struct stacking_frame {
 	uint32 return_addr;
 	uint32 psr;
 } STACKING_FRAME;
+
+typedef struct task_reg {
+	uint32 LR;
+	uint32 return_addr;
+	uint32 psr;
+} TASK_REG;
 
 typedef struct context {
 	CONTEXT_FRAME cf;

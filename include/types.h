@@ -9,5 +9,7 @@
 #define TYPES_H_
 
 typedef unsigned int uint32;
+typedef unsigned char uint8;
+typedef char int8;
 
 #endif /* TYPES_H_ */

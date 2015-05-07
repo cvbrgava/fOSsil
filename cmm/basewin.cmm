@@ -1,28 +1,31 @@
-// T32_1000033 Wed Dec 01 16:29:24 2010
+// T32_1000001 Tue May 05 13:22:15 2015
 
  B::
  
  TOOLBAR ON
  STATUSBAR ON
- FRAMEPOS 9.4286,6.6923,,,Maximized
- WINPAGE.RESET
+ FramePOS 9.4286,6.6667,,,Maximized
+ WinPAGE.RESet
  
- WINCLEAR
- WINPOS 120.71 37.692 56. 19. 0. 0. W002
+ WinPAGE.Create P000
+ 
+ WinCLEAR
+ WinPOS 121.14 52.667 56. 16. 0. 0. W002
  Var.Local
  
- WINPOS 0.0 40.154 116. 17. 0. 0. W0002
+ WinPOS 182.29 52.5 86. 14. 5. 0. W003
+ v.f
+ 
+ WinPOS 121.14 0.0 56. 48. 0. 0. W001
+ register.view  /SL
+ 
+ WinPOS 0.0 52.0 116. 18. 0. 0. W0002
  term.gate
  
- WINPOS 0.0 0.0 117. 36. 13. 1. W000
- WINTABS 16. 18. 25. 62.
+ WinPOS 0.0 0.0 116. 46. 13. 1. W000
+ WinTABS 16. 18. 25. 62.
  d.l
  
- ;WINPOS 120.71 0.0 56. 19. 0. 0. 
- WINPOS 120.71 0.0 48. 19.
- register.view  
- 
- WINPAGE.SELECT P000     
+ WinPAGE.select P000
  
  ENDDO
-
