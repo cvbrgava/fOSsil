@@ -1,0 +1,109 @@
+local &m_szExeFullPath
+;________________________________________________________________
+;
+;   Starting things off (some of this may be overkill. We will
+;   adjust as needed).
+;________________________________________________________________
+TOOLBAR ON
+STATUSBAR ON
+WINPAGE.RESET
+winclear
+
+;________________________________________________________________
+;
+;   Setting up a little messaging window to print out the outputs
+;   of the various commands and scripts that run, while your
+;   code is loading.
+;________________________________________________________________
+WINPOS 0.0 0.15385 111. 25. 0. 0. W000
+area
+area.reset
+
+
+;________________________________________________________________
+
+; ---------------------------------------------------------------
+; Generating a reset
+; ---------------------------------------------------------------
+SYSTEM.DOWN
+SYSTEM.UP
+
+;________________________________________________________________
+;
+;   Configure the Trace 32 environment as needed
+;________________________________________________________________
+print "Configuring Trace 32"
+;do &SHARED_VI_PROCESSOR_CMM\t32_config_ASIC.cmm
+
+
+;________________________________________________________________
+;
+;   Downloading the binary image of your code onto the MSM.
+;________________________________________________________________
+print "Downloading ARM image"
+&m_szExeFullPath="..\build\fOSsil.axf"
+IF OS.FILE(&m_szExeFullPath)
+  GOTO Sub_ContinueExe
+else
+  GOTO Sub_FileNoExist
+  
+
+  
+;-----------------------------------------------------------------  
+;  Subroutine for File Doesn't Exist
+;-----------------------------------------------------------------  
+Sub_FileNoExist:
+  PRINT "File &m_szExeFullPath doesn't exist"
+  ENDDO
+  
+;-----------------------------------------------------------------  
+;  Subroutine for File Exist and Continue
+;-----------------------------------------------------------------  
+Sub_ContinueExe:
+  PRINT "File exists"
+  d.load.elf &m_szExeFullPath
+ 
+
+;________________________________________________________________
+;
+;   Semi-hosting Setup (Comment these commands, if you don't
+;   want to use semi-hosting).
+;________________________________________________________________
+do semihost_setup.cmm
+
+mode.hll
+
+sYmbol.SourcePATH.SetRecurseDir "..\include"
+sYmbol.SourcePATH.SetRecurseDir "..\src"
+;________________________________________________________________
+;
+;   Setting up the windows.
+;________________________________________________________________
+do basewin
+;________________________________________________________________
+;
+;   Code loading is done. You can add extra instructions below,
+;   as needed.
+;________________________________________________________________
+;************
+; Now in QNPL
+;************
+b.s SYSTIC_Handler /o
+go main
+
+;****************************
+; Your actual "main" function
+;****************************
+;go vv_test
+
+enddo
+
+; =============================================================================
+;  Function Error Parameter
+; =============================================================================
+labelErrorParameter:
+  print "!!! Error: Test Name is not defined"
+  print "--- Usage: load_code <test_name>"
+  enddo
+
+
