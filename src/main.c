@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <time.h>
 #include "fOSsil.h"
-#include "main.h"
 
 #define SYS_TICKS	100000
 #define MIN_STACK_SIZE (sizeof(CONTEXT))
@@ -84,7 +83,7 @@ void SYSTIC_Handler( void ) {
 
 void task1() {
 	static uint32 i = 0;
-	while(1)
+	while(i<10)
 		i ++;
 }
 
