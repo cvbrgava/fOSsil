@@ -12,4 +12,6 @@ typedef unsigned int uint32;
 typedef unsigned char uint8;
 typedef char int8;
 
+typedef void *p_func(void);
+
 #endif /* TYPES_H_ */

@@ -10,6 +10,13 @@
  * ========================================
 */
 #include "sys_tick_timer.h"
+#include "cm3_lib.h"
+#include <stdio.h>
+#include <time.h>
+
+void os_init();
+void os_run();
+void task_create(p_func pf, uint32 stack_size, int8 priority, uint8 index);
 
 typedef struct stask {
 	uint32 * func_pointer;
